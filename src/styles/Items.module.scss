@@ -1,0 +1,19 @@
+.items{
+    max-width: 100wv;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+.card{
+    display: flex;
+    justify-content: center;
+    .infoBlock{
+        background-color: rgba(117, 117, 116, 0.295);
+        margin-left: 20px;
+        .price{
+            font-weight: 800;
+            font-size: 40px;
+        }
+    }
+}

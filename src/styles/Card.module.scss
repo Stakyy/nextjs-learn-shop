@@ -1,0 +1,24 @@
+.card{
+    margin: 10px;
+}
+.bottom{
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .title{
+        max-height: 100px;
+        text-overflow: clip;
+    }
+    .actions{
+        display: flex;
+        flex-direction: column;
+    }
+    .price{
+        text-align: center;
+        background-color: rgb(231, 231, 114);
+        font-weight: 700;
+        border-radius: 20px;
+        margin-bottom: 10px;
+    }
+}
