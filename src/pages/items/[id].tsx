@@ -11,6 +11,10 @@ interface IServerSideProps {
   params: { id: string };
 }
 
+const addToCart = async (params: any) => {
+  axios.post("/api/cartApi", { item: params });
+};
+
 export default function Item({ item }: Iprops) {
   return (
     <MainContainer keywords={""} title={item.title}>
@@ -20,7 +24,14 @@ export default function Item({ item }: Iprops) {
         <div className={styles.infoBlock}>
           <div className={styles.price}>${item.price}</div>
           <div className={styles.description}>{item.description}</div>
-          <Button>Купить</Button>
+          <Button
+            onClick={(e) => {
+              e.stopPropagation();
+              addToCart(item);
+            }}
+          >
+            Купить
+          </Button>
         </div>
         {/* <div></div> */}
       </div>
@@ -38,7 +49,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps(context: any) {
   const { id } = context.params;
   const response = await axios.get(`https://fakestoreapi.com/products/${id}`);
   const data = response.data;

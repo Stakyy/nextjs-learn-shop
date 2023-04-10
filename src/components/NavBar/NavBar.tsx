@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 const NAVIGATION = [
   { id: 1, title: "Главная", path: "/" },
   { id: 2, title: "Товары", path: "/items" },
-  { id: 3, title: "Корзина", path: "#" },
+  { id: 3, title: "Корзина", path: "/cart" },
   { id: 4, title: "Контакты", path: "#" },
 ];
 
