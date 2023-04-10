@@ -12,20 +12,21 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  console.log(req.body, "asdaasdasdasd");
   if (req.method === "GET") {
     res.status(200).json({ cart: cart });
   }
   if (req.method === "POST") {
-    cart.push(req.body.item);
+    cart = [...cart, req.body.item];
 
     res.status(200).json({ cart: cart });
     return;
   }
   if (req.method === "DELETE") {
     console.log("req.body", req.body);
-    cart = cart.filter((item) => item.id !== req.body);
-    console.log("DELETE", cart);
+
+    const newCart = JSON.parse(JSON.stringify(cart));
+    cart = [];
+    cart = newCart.filter((item: any) => item.id !== req.body);
 
     res.status(200).json({ cart: cart });
     return;

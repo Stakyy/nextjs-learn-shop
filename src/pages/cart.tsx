@@ -5,6 +5,7 @@ import Image from "next/image";
 import Heading from "@/components/Heading";
 import { Button } from "antd";
 import { useEffect, useState } from "react";
+import styles from "../styles/Cart.module.scss";
 
 interface Iprops {
   data: ICardItem[];
@@ -27,15 +28,17 @@ const Cart = ({ data }: Iprops) => {
         <Heading tag="h1" text="Корзина" />
         {cart &&
           cart?.map((data) => (
-            <div>
+            <div className={styles.cartItem}>
               <Image
                 height={50}
                 width={50}
                 alt={data?.title}
                 src={data?.image}
               />
-              <div>{data?.title}</div>
-              <div>{data?.price}</div>
+              <div className={styles.info}>
+                <div>{data?.title}</div>
+                <div className={styles.price}>${data?.price}</div>
+              </div>
               <Button onClick={() => deleteFromCart(data.id)}>Удалить</Button>
             </div>
           ))}

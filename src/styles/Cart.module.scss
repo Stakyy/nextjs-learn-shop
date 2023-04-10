@@ -1,0 +1,21 @@
+.cartItem{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid black;
+    width: 500px;
+    border-radius: 20px;
+    padding: 10px;
+    .info{
+        margin: 0 20px;
+        width: 200px;
+    }
+    .price{
+        text-align: center;
+        background-color: rgb(231, 231, 114);
+        font-weight: 700;
+        border-radius: 20px;
+        // margin-bottom: 10px;
+    }
+    margin-bottom: 20px;
+}
